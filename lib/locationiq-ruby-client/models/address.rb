@@ -20,11 +20,31 @@ module LocationIQClient
 
     attr_accessor :residential
 
+    attr_accessor :borough
+
+    attr_accessor :neighbourhood
+
+    attr_accessor :quarter
+
+    attr_accessor :hamlet
+
+    attr_accessor :suburb
+
+    attr_accessor :island
+
     attr_accessor :village
+
+    attr_accessor :town
+
+    attr_accessor :city
+
+    attr_accessor :city_district
 
     attr_accessor :county
 
     attr_accessor :state
+
+    attr_accessor :state_district
 
     attr_accessor :postcode
 
@@ -32,7 +52,7 @@ module LocationIQClient
 
     attr_accessor :country_code
 
-    attr_accessor :city
+    attr_accessor :state_code
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -40,13 +60,23 @@ module LocationIQClient
         :'house_number' => :'house_number',
         :'road' => :'road',
         :'residential' => :'residential',
+        :'borough' => :'borough',
+        :'neighbourhood' => :'neighbourhood',
+        :'quarter' => :'quarter',
+        :'hamlet' => :'hamlet',
+        :'suburb' => :'suburb',
+        :'island' => :'island',
         :'village' => :'village',
+        :'town' => :'town',
+        :'city' => :'city',
+        :'city_district' => :'city_district',
         :'county' => :'county',
         :'state' => :'state',
+        :'state_district' => :'state_district',
         :'postcode' => :'postcode',
         :'country' => :'country',
         :'country_code' => :'country_code',
-        :'city' => :'city'
+        :'state_code' => :'state_code'
       }
     end
 
@@ -56,13 +86,23 @@ module LocationIQClient
         :'house_number' => :'String',
         :'road' => :'String',
         :'residential' => :'String',
+        :'borough' => :'String',
+        :'neighbourhood' => :'String',
+        :'quarter' => :'String',
+        :'hamlet' => :'String',
+        :'suburb' => :'String',
+        :'island' => :'String',
         :'village' => :'String',
+        :'town' => :'String',
+        :'city' => :'String',
+        :'city_district' => :'String',
         :'county' => :'String',
         :'state' => :'String',
+        :'state_district' => :'String',
         :'postcode' => :'String',
         :'country' => :'String',
         :'country_code' => :'String',
-        :'city' => :'String'
+        :'state_code' => :'String'
       }
     end
 
@@ -86,8 +126,44 @@ module LocationIQClient
         self.residential = attributes[:'residential']
       end
 
+      if attributes.has_key?(:'borough')
+        self.borough = attributes[:'borough']
+      end
+
+      if attributes.has_key?(:'neighbourhood')
+        self.neighbourhood = attributes[:'neighbourhood']
+      end
+
+      if attributes.has_key?(:'quarter')
+        self.quarter = attributes[:'quarter']
+      end
+
+      if attributes.has_key?(:'hamlet')
+        self.hamlet = attributes[:'hamlet']
+      end
+
+      if attributes.has_key?(:'suburb')
+        self.suburb = attributes[:'suburb']
+      end
+
+      if attributes.has_key?(:'island')
+        self.island = attributes[:'island']
+      end
+
       if attributes.has_key?(:'village')
         self.village = attributes[:'village']
+      end
+
+      if attributes.has_key?(:'town')
+        self.town = attributes[:'town']
+      end
+
+      if attributes.has_key?(:'city')
+        self.city = attributes[:'city']
+      end
+
+      if attributes.has_key?(:'city_district')
+        self.city_district = attributes[:'city_district']
       end
 
       if attributes.has_key?(:'county')
@@ -96,6 +172,10 @@ module LocationIQClient
 
       if attributes.has_key?(:'state')
         self.state = attributes[:'state']
+      end
+
+      if attributes.has_key?(:'state_district')
+        self.state_district = attributes[:'state_district']
       end
 
       if attributes.has_key?(:'postcode')
@@ -110,8 +190,8 @@ module LocationIQClient
         self.country_code = attributes[:'country_code']
       end
 
-      if attributes.has_key?(:'city')
-        self.city = attributes[:'city']
+      if attributes.has_key?(:'state_code')
+        self.state_code = attributes[:'state_code']
       end
     end
 
@@ -136,13 +216,23 @@ module LocationIQClient
           house_number == o.house_number &&
           road == o.road &&
           residential == o.residential &&
+          borough == o.borough &&
+          neighbourhood == o.neighbourhood &&
+          quarter == o.quarter &&
+          hamlet == o.hamlet &&
+          suburb == o.suburb &&
+          island == o.island &&
           village == o.village &&
+          town == o.town &&
+          city == o.city &&
+          city_district == o.city_district &&
           county == o.county &&
           state == o.state &&
+          state_district == o.state_district &&
           postcode == o.postcode &&
           country == o.country &&
           country_code == o.country_code &&
-          city == o.city
+          state_code == o.state_code
     end
 
     # @see the `==` method
@@ -154,7 +244,7 @@ module LocationIQClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [house_number, road, residential, village, county, state, postcode, country, country_code, city].hash
+      [house_number, road, residential, borough, neighbourhood, quarter, hamlet, suburb, island, village, town, city, city_district, county, state, state_district, postcode, country, country_code, state_code].hash
     end
 
     # Builds the object from hash

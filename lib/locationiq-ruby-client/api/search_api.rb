@@ -26,7 +26,7 @@ module LocationIQClient
     # @param normalizecity For responses with no city value in the address section, the next available element in this order - city_district, locality, town, borough, municipality, village, hamlet, quarter, neighbourhood - from the address section will be normalized to city. Defaults to 1 for SDKs.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :addressdetails Include a breakdown of the address into elements. Defaults to 0.
-    # @option opts [String] :viewbox The preferred area to find search results.  To restrict results to those within the viewbox, use along with the bounded option.
+    # @option opts [String] :viewbox The preferred area to find search results.  To restrict results to those within the viewbox, use along with the bounded option. Tuple of 4 floats. Any two corner points of the box - &#x60;max_lon,max_lat,min_lon,min_lat&#x60; or &#x60;min_lon,min_lat,max_lon,max_lat&#x60; - are accepted in any order as long as they span a real box. 
     # @option opts [Integer] :bounded Restrict the results to only items contained with the viewbox
     # @option opts [Integer] :limit Limit the number of returned results. Default is 10. (default to 10)
     # @option opts [String] :accept_language Preferred language order for showing search results, overrides the value specified in the Accept-Language HTTP header. Defaults to en. To use native language for the response when available, use accept-language&#x3D;native
@@ -34,6 +34,7 @@ module LocationIQClient
     # @option opts [Integer] :namedetails Include a list of alternative names in the results. These may include language variants, references, operator and brand.
     # @option opts [Integer] :dedupe Sometimes you have several objects in OSM identifying the same place or object in reality. The simplest case is a street being split in many different OSM ways due to different characteristics. Nominatim will attempt to detect such duplicates and only return one match; this is controlled by the dedupe parameter which defaults to 1. Since the limit is, for reasons of efficiency, enforced before and not after de-duplicating, it is possible that de-duplicating leaves you with less results than requested.
     # @option opts [Integer] :extratags Include additional information in the result if available, e.g. wikipedia link, opening hours.
+    # @option opts [Integer] :statecode Adds state or province code when available to the statecode key inside the address element. Currently supported for addresses in the USA, Canada and Australia. Defaults to 0
     # @return [Array<Location>]
     def search(q, format, normalizecity, opts = {})
       data, _status_code, _headers = search_with_http_info(q, format, normalizecity, opts)
@@ -47,7 +48,7 @@ module LocationIQClient
     # @param normalizecity For responses with no city value in the address section, the next available element in this order - city_district, locality, town, borough, municipality, village, hamlet, quarter, neighbourhood - from the address section will be normalized to city. Defaults to 1 for SDKs.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :addressdetails Include a breakdown of the address into elements. Defaults to 0.
-    # @option opts [String] :viewbox The preferred area to find search results.  To restrict results to those within the viewbox, use along with the bounded option.
+    # @option opts [String] :viewbox The preferred area to find search results.  To restrict results to those within the viewbox, use along with the bounded option. Tuple of 4 floats. Any two corner points of the box - &#x60;max_lon,max_lat,min_lon,min_lat&#x60; or &#x60;min_lon,min_lat,max_lon,max_lat&#x60; - are accepted in any order as long as they span a real box. 
     # @option opts [Integer] :bounded Restrict the results to only items contained with the viewbox
     # @option opts [Integer] :limit Limit the number of returned results. Default is 10.
     # @option opts [String] :accept_language Preferred language order for showing search results, overrides the value specified in the Accept-Language HTTP header. Defaults to en. To use native language for the response when available, use accept-language&#x3D;native
@@ -55,6 +56,7 @@ module LocationIQClient
     # @option opts [Integer] :namedetails Include a list of alternative names in the results. These may include language variants, references, operator and brand.
     # @option opts [Integer] :dedupe Sometimes you have several objects in OSM identifying the same place or object in reality. The simplest case is a street being split in many different OSM ways due to different characteristics. Nominatim will attempt to detect such duplicates and only return one match; this is controlled by the dedupe parameter which defaults to 1. Since the limit is, for reasons of efficiency, enforced before and not after de-duplicating, it is possible that de-duplicating leaves you with less results than requested.
     # @option opts [Integer] :extratags Include additional information in the result if available, e.g. wikipedia link, opening hours.
+    # @option opts [Integer] :statecode Adds state or province code when available to the statecode key inside the address element. Currently supported for addresses in the USA, Canada and Australia. Defaults to 0
     # @return [Array<(Array<Location>, Fixnum, Hash)>] Array<Location> data, response status code and response headers
     def search_with_http_info(q, format, normalizecity, opts = {})
       if @api_client.config.debugging
@@ -95,6 +97,9 @@ module LocationIQClient
       if @api_client.config.client_side_validation && opts[:'extratags'] && !['0', '1'].include?(opts[:'extratags'])
         fail ArgumentError, 'invalid value for "extratags", must be one of 0, 1'
       end
+      if @api_client.config.client_side_validation && opts[:'statecode'] && !['0', '1'].include?(opts[:'statecode'])
+        fail ArgumentError, 'invalid value for "statecode", must be one of 0, 1'
+      end
       # resource path
       local_var_path = '/search.php'
 
@@ -112,6 +117,7 @@ module LocationIQClient
       query_params[:'namedetails'] = opts[:'namedetails'] if !opts[:'namedetails'].nil?
       query_params[:'dedupe'] = opts[:'dedupe'] if !opts[:'dedupe'].nil?
       query_params[:'extratags'] = opts[:'extratags'] if !opts[:'extratags'].nil?
+      query_params[:'statecode'] = opts[:'statecode'] if !opts[:'statecode'].nil?
 
       # header parameters
       header_params = {}

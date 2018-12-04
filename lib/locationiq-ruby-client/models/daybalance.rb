@@ -16,17 +16,21 @@ module LocationIQClient
   class Daybalance
     attr_accessor :day
 
+    attr_accessor :bonus
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'day' => :'day'
+        :'day' => :'day',
+        :'bonus' => :'bonus'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'day' => :'Integer'
+        :'day' => :'Integer',
+        :'bonus' => :'Integer'
       }
     end
 
@@ -40,6 +44,10 @@ module LocationIQClient
 
       if attributes.has_key?(:'day')
         self.day = attributes[:'day']
+      end
+
+      if attributes.has_key?(:'bonus')
+        self.bonus = attributes[:'bonus']
       end
     end
 
@@ -61,7 +69,8 @@ module LocationIQClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          day == o.day
+          day == o.day &&
+          bonus == o.bonus
     end
 
     # @see the `==` method
@@ -73,7 +82,7 @@ module LocationIQClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [day].hash
+      [day, bonus].hash
     end
 
     # Builds the object from hash

@@ -30,6 +30,7 @@ module LocationIQClient
     # @option opts [String] :accept_language Preferred language order for showing search results, overrides the value specified in the Accept-Language HTTP header. Defaults to en. To use native language for the response when available, use accept-language&#x3D;native
     # @option opts [Integer] :namedetails Include a list of alternative names in the results. These may include language variants, references, operator and brand.
     # @option opts [Integer] :extratags Include additional information in the result if available, e.g. wikipedia link, opening hours.
+    # @option opts [Integer] :statecode Adds state or province code when available to the statecode key inside the address element. Currently supported for addresses in the USA, Canada and Australia. Defaults to 0
     # @return [Location]
     def reverse(lat, lon, format, normalizecity, opts = {})
       data, _status_code, _headers = reverse_with_http_info(lat, lon, format, normalizecity, opts)
@@ -47,6 +48,7 @@ module LocationIQClient
     # @option opts [String] :accept_language Preferred language order for showing search results, overrides the value specified in the Accept-Language HTTP header. Defaults to en. To use native language for the response when available, use accept-language&#x3D;native
     # @option opts [Integer] :namedetails Include a list of alternative names in the results. These may include language variants, references, operator and brand.
     # @option opts [Integer] :extratags Include additional information in the result if available, e.g. wikipedia link, opening hours.
+    # @option opts [Integer] :statecode Adds state or province code when available to the statecode key inside the address element. Currently supported for addresses in the USA, Canada and Australia. Defaults to 0
     # @return [Array<(Location, Fixnum, Hash)>] Location data, response status code and response headers
     def reverse_with_http_info(lat, lon, format, normalizecity, opts = {})
       if @api_client.config.debugging
@@ -101,6 +103,9 @@ module LocationIQClient
       if @api_client.config.client_side_validation && opts[:'extratags'] && !['0', '1'].include?(opts[:'extratags'])
         fail ArgumentError, 'invalid value for "extratags", must be one of 0, 1'
       end
+      if @api_client.config.client_side_validation && opts[:'statecode'] && !['0', '1'].include?(opts[:'statecode'])
+        fail ArgumentError, 'invalid value for "statecode", must be one of 0, 1'
+      end
       # resource path
       local_var_path = '/reverse.php'
 
@@ -114,6 +119,7 @@ module LocationIQClient
       query_params[:'accept-language'] = opts[:'accept_language'] if !opts[:'accept_language'].nil?
       query_params[:'namedetails'] = opts[:'namedetails'] if !opts[:'namedetails'].nil?
       query_params[:'extratags'] = opts[:'extratags'] if !opts[:'extratags'].nil?
+      query_params[:'statecode'] = opts[:'statecode'] if !opts[:'statecode'].nil?
 
       # header parameters
       header_params = {}
