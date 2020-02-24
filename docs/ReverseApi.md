@@ -1,4 +1,4 @@
-# OpenapiClient::ReverseApi
+# LocationIQClient::ReverseApi
 
 All URIs are relative to *https://eu1.locationiq.com/v1*
 
@@ -20,23 +20,23 @@ Reverse geocoding is the process of converting a coordinate or location (latitud
 
 ```ruby
 # load the gem
-require 'openapi_client'
+require 'locationiq-ruby-client'
 # setup authorization
-OpenapiClient.configure do |config|
+LocationIQClient.configure do |config|
   # Configure API key authorization: key
   config.api_key['key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['key'] = 'Bearer'
 end
 
-api_instance = OpenapiClient::ReverseApi.new
+api_instance = LocationIQClient::ReverseApi.new
 lat = 40.7487727 # Float | Latitude of the location to generate an address for.
 lon = -73.9849336 # Float | Longitude of the location to generate an address for.
-format = '\"json\"' # String | Format to geocode. Only JSON supported for SDKs
+format = 'json' # String | Format to geocode. Only JSON supported for SDKs
 normalizecity = 1 # Integer | Normalizes village to city level data to city
 opts = {
   addressdetails: 1, # Integer | Include a breakdown of the address into elements. Defaults to 1.
-  accept_language: '\"en\"', # String | Preferred language order for showing search results, overrides the value specified in the Accept-Language HTTP header. Defaults to en. To use native language for the response when available, use accept-language=native
+  accept_language: 'en', # String | Preferred language order for showing search results, overrides the value specified in the Accept-Language HTTP header. Defaults to en. To use native language for the response when available, use accept-language=native
   namedetails: 0, # Integer | Include a list of alternative names in the results. These may include language variants, references, operator and brand.
   extratags: 0, # Integer | Include additional information in the result if available, e.g. wikipedia link, opening hours.
   statecode: 0, # Integer | Adds state or province code when available to the statecode key inside the address element. Currently supported for addresses in the USA, Canada and Australia. Defaults to 0
@@ -48,7 +48,7 @@ begin
   #Reverse Geocoding
   result = api_instance.reverse(lat, lon, format, normalizecity, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue LocationIQClient::ApiError => e
   puts "Exception when calling ReverseApi->reverse: #{e}"
 end
 ```

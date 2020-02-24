@@ -12,14 +12,14 @@ OpenAPI Generator version: 4.2.3
 
 require 'spec_helper'
 
-describe OpenapiClient::Configuration do
-  let(:config) { OpenapiClient::Configuration.default }
+describe LocationIQClient::Configuration do
+  let(:config) { LocationIQClient::Configuration.default }
 
   before(:each) do
     # uncomment below to setup host and base_path
     # require 'URI'
     # uri = URI.parse("https://eu1.locationiq.com/v1")
-    # OpenapiClient.configure do |c|
+    # LocationIQClient.configure do |c|
     #   c.host = uri.host
     #   c.base_path = uri.path
     # end

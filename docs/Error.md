@@ -1,4 +1,4 @@
-# OpenapiClient::Error
+# LocationIQClient::Error
 
 ## Properties
 
@@ -9,9 +9,9 @@ Name | Type | Description | Notes
 ## Code Sample
 
 ```ruby
-require 'OpenapiClient'
+require 'LocationIQClient'
 
-instance = OpenapiClient::Error.new(error: null)
+instance = LocationIQClient::Error.new(error: null)
 ```
 
 

@@ -1,4 +1,4 @@
-# OpenapiClient::Balance
+# LocationIQClient::Balance
 
 ## Properties
 
@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 ## Code Sample
 
 ```ruby
-require 'OpenapiClient'
+require 'LocationIQClient'
 
-instance = OpenapiClient::Balance.new(status: null,
+instance = LocationIQClient::Balance.new(status: null,
                                  balance: null)
 ```
 

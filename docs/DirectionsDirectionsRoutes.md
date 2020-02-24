@@ -1,4 +1,4 @@
-# OpenapiClient::DirectionsDirectionsRoutes
+# LocationIQClient::DirectionsDirectionsRoutes
 
 ## Properties
 
@@ -14,9 +14,9 @@ Name | Type | Description | Notes
 ## Code Sample
 
 ```ruby
-require 'OpenapiClient'
+require 'LocationIQClient'
 
-instance = OpenapiClient::DirectionsDirectionsRoutes.new(legs: null,
+instance = LocationIQClient::DirectionsDirectionsRoutes.new(legs: null,
                                  weight_name: null,
                                  geometry: null,
                                  weight: null,

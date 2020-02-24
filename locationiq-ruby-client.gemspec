@@ -13,11 +13,11 @@ OpenAPI Generator version: 4.2.3
 =end
 
 $:.push File.expand_path("../lib", __FILE__)
-require "openapi_client/version"
+require "locationiq-ruby-client/version"
 
 Gem::Specification.new do |s|
-  s.name        = "openapi_client"
-  s.version     = OpenapiClient::VERSION
+  s.name        = "locationiq-ruby-client"
+  s.version     = LocationIQClient::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["OpenAPI-Generator"]
   s.email       = [""]

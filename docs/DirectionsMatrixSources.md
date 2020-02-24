@@ -1,4 +1,4 @@
-# OpenapiClient::DirectionsMatrixSources
+# LocationIQClient::DirectionsMatrixSources
 
 ## Properties
 
@@ -11,9 +11,9 @@ Name | Type | Description | Notes
 ## Code Sample
 
 ```ruby
-require 'OpenapiClient'
+require 'LocationIQClient'
 
-instance = OpenapiClient::DirectionsMatrixSources.new(distance: null,
+instance = LocationIQClient::DirectionsMatrixSources.new(distance: null,
                                  location: null,
                                  name: null)
 ```

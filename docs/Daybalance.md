@@ -1,4 +1,4 @@
-# OpenapiClient::Daybalance
+# LocationIQClient::Daybalance
 
 ## Properties
 
@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 ## Code Sample
 
 ```ruby
-require 'OpenapiClient'
+require 'LocationIQClient'
 
-instance = OpenapiClient::Daybalance.new(day: null,
+instance = LocationIQClient::Daybalance.new(day: null,
                                  bonus: null)
 ```
 

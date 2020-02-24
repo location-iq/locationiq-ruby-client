@@ -1,4 +1,4 @@
-# OpenapiClient::Matchquality
+# LocationIQClient::Matchquality
 
 ## Properties
 
@@ -11,9 +11,9 @@ Name | Type | Description | Notes
 ## Code Sample
 
 ```ruby
-require 'OpenapiClient'
+require 'LocationIQClient'
 
-instance = OpenapiClient::Matchquality.new(matchcode: null,
+instance = LocationIQClient::Matchquality.new(matchcode: null,
                                  matchtype: null,
                                  matchlevel: null)
 ```

@@ -1,4 +1,4 @@
-# OpenapiClient::Location
+# LocationIQClient::Location
 
 ## Properties
 
@@ -23,9 +23,9 @@ Name | Type | Description | Notes
 ## Code Sample
 
 ```ruby
-require 'OpenapiClient'
+require 'LocationIQClient'
 
-instance = OpenapiClient::Location.new(distance: null,
+instance = LocationIQClient::Location.new(distance: null,
                                  place_id: null,
                                  licence: null,
                                  osm_type: null,

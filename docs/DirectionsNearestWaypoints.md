@@ -1,4 +1,4 @@
-# OpenapiClient::DirectionsNearestWaypoints
+# LocationIQClient::DirectionsNearestWaypoints
 
 ## Properties
 
@@ -12,9 +12,9 @@ Name | Type | Description | Notes
 ## Code Sample
 
 ```ruby
-require 'OpenapiClient'
+require 'LocationIQClient'
 
-instance = OpenapiClient::DirectionsNearestWaypoints.new(nodes: null,
+instance = LocationIQClient::DirectionsNearestWaypoints.new(nodes: null,
                                  distance: null,
                                  location: null,
                                  name: null)
