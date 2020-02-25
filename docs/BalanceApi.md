@@ -7,7 +7,9 @@ Method | HTTP request | Description
 [**balance**](BalanceApi.md#balance) | **GET** /balance.php | 
 
 
-# **balance**
+
+## balance
+
 > Balance balance
 
 
@@ -15,6 +17,7 @@ Method | HTTP request | Description
 The Balance API provides a count of request credits left in the user's account for the day. Balance is reset at midnight UTC everyday (00:00 UTC).
 
 ### Example
+
 ```ruby
 # load the gem
 require 'locationiq-ruby-client'
@@ -37,6 +40,7 @@ end
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -49,8 +53,6 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
